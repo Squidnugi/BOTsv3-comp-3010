@@ -24,7 +24,22 @@ Applying the NCSC’s "10 Steps to Cyber Security," this incident reveals a crit
 
 
 Installation & Data Preparation
-Screenshots of splunk and dataset installation on vm, add what you can word wise
+![Figure 1: Splunk installation through tgz](Screenshots/Screenshot 2025-12-02 180119.png)
+*Figure 1: Extracting the Splunk tarball on Ubuntu.*
+
+The Splunk instance was deployed on Ubuntu Linux. This choice was made to align with professional SOC infrastructure standards, prioritizing resource efficiency and security. Unlike a Windows deployment, a "headless" Linux distribution significantly reduces resource overhead, ensuring that system memory is dedicated to indexing and searching rather than a GUI. From a security perspective, using a minimal Linux distro adheres to the NCSC principle of reducing the attack surface by eliminating unnecessary default applications and services.
+
+The installation was performed using the .tgz archive. This method was selected over automated installers (like .deb or .rpm) to allow for more control over the installation directory and file permissions. In a SOC environment, this manual approach ensures that Splunk operates within a dedicated user space, adhering to the Principle of Least Privilege by not requiring root-level access for standard operations.
+
+![Figure 2: Splunk successfully running](Screenshots/Screenshot 2025-12-02 181237.png)
+*Figure 2: Confirmation of splunk running.*
+
+Figure 2 confirms that the Splunk Enterprise service is successfully initialised and the web interface is reachable. Validation was performed by launching the application in the browser and logging in. This step is critical in SOC preparation to ensure the SIEM is ready to ingest telemetry before any data is piped into the system.
+
+![Figure 3: BOTSv3 successfully installed](Screenshots/Screenshot 2025-12-02 183450.png)
+*Figure 3: Data Summary showing the populated botsv3 index.*
+
+Figure 3 confirms the successful ingestion of the BOTSv3 dataset by demonstrating that the botsv3 index is populated and contains the expected volume of events. Validating the presence of this raw telemetry is a critical baseline step in the NCSC 'Logging and Monitoring' lifecycle. While this confirms the data is physically present within the SIEM, it also establishes the necessary environment for Technology Add-ons to begin parsing the raw logs into structured fields. Ensuring the index is fully populated is a prerequisite for the subsequent analytical phase, where these fields will be used to correlate activity across AWS and Windows sources.
 
 Guided Questions
 
