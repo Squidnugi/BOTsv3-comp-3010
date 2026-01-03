@@ -44,6 +44,32 @@ Figure 3 confirms the successful ingestion of the BOTSv3 dataset by demonstratin
 
 Guided Questions
 
+![Figure 4: List of IAM users](Screenshots/IAM_users.png)
+*Figure 4: A comprehensive list of IAM users extracted from AWS CloudTrail logs to establish an identity baseline.*
+
+![Figure 5: MFA occurrences](Screenshots/MFA_occurrences.png)
+*Figure 5: Identification of Multi-Factor Authentication (MFA) login events used to verify account security posture.*
+
+![Figure 6: Web server hardware information](Screenshots/web_server_hardware_information.png)
+*Figure 6: Detailed hardware specifications for the web server, providing a baseline for performance monitoring.*
+
+![Figure 7: S3 bucket Acl events](Screenshots/cloudtrial_s3_acl_events.png)
+*Figure 7: Splunk search results showing the Access Control List (ACL) changes that allowed the S3 bucket to become public.*
+
+![Figure 8: Account responsible username](Screenshots/source_account_username.png)
+*Figure 8: Forensic evidence identifying 'bstoll' as the account associated with the unauthorized configuration changes.*
+
+![Figure 9: Name of S3 bucket that was made public](Screenshots/S3_bucket_name.png)
+*Figure 9: Identification of the specific S3 bucket (frothlywebcode) that was exposed to the public internet.*
+
+![Figure 10: File uploaded to the S3 bucket](Screenshots/upoaded_file_in_s3_bucket.png)
+*Figure 10: Detection of the specific file uploaded to the compromised bucket during the window of exposure.*
+
+![Figure 11: Host name of endpoint](Screenshots/host_name_of_endpoint.png)
+*Figure 11: Confirmation of the local host name for the physical endpoint associated with the user bstoll.*
+
+![Figure 12: FQDN of the endpoint](Screenshots/FQDN_of_the_endpoint.png)
+*Figure 12: The Fully Qualified Domain Name (FQDN) of the endpoint, providing the precise network location for incident containment.*
 
 Conclusions
 
