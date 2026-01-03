@@ -24,7 +24,8 @@ Applying the NCSC’s "10 Steps to Cyber Security," this incident reveals a crit
 
 
 Installation & Data Preparation
-![Figure 1: Splunk installation through tgz](Screenshots/Screenshot 2025-12-02 180119.png)
+
+![Figure 1: Splunk installation through tgz](Screenshots/installation_tgz.png)
 *Figure 1: Extracting the Splunk tarball on Ubuntu.*
 
 The Splunk instance was deployed on Ubuntu Linux. This choice was made to align with professional SOC infrastructure standards, prioritizing resource efficiency and security. Unlike a Windows deployment, a "headless" Linux distribution significantly reduces resource overhead, ensuring that system memory is dedicated to indexing and searching rather than a GUI. From a security perspective, using a minimal Linux distro adheres to the NCSC principle of reducing the attack surface by eliminating unnecessary default applications and services.
