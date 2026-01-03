@@ -42,7 +42,12 @@ Figure 2 confirms that the Splunk Enterprise service is successfully initialised
 
 Figure 3 confirms the successful ingestion of the BOTSv3 dataset by demonstrating that the botsv3 index is populated and contains the expected volume of events. Validating the presence of this raw telemetry is a critical baseline step in the NCSC 'Logging and Monitoring' lifecycle. While this confirms the data is physically present within the SIEM, it also establishes the necessary environment for Technology Add-ons to begin parsing the raw logs into structured fields. Ensuring the index is fully populated is a prerequisite for the subsequent analytical phase, where these fields will be used to correlate activity across AWS and Windows sources.
 
-Guided Questions
+## Guided Investigation: Analysis and Timeline of Events
+
+This investigation follows a chronological timeline, moving from a baseline audit of the Frothly environment to the identification and attribution of a specific security breach.
+
+### Stage 1: Security Posture & Baseline Audit
+The investigation began by establishing a baseline of the environment's identity and hardware assets to identify deviations from normal operations.
 
 ![Figure 4: List of IAM users](Screenshots/IAM_users.png)
 *Figure 4: A comprehensive list of IAM users extracted from AWS CloudTrail logs to establish an identity baseline.*
@@ -53,6 +58,11 @@ Guided Questions
 ![Figure 6: Web server hardware information](Screenshots/web_server_hardware_information.png)
 *Figure 6: Detailed hardware specifications for the web server, providing a baseline for performance monitoring.*
 
+---
+
+### Stage 2: Incident Identification (The Cloud Breach)
+Following the baseline, a specific event was detected: the unauthorised modification of cloud storage permissions.
+
 ![Figure 7: S3 bucket Acl events](Screenshots/cloudtrial_s3_acl_events.png)
 *Figure 7: Splunk search results showing the Access Control List (ACL) changes that allowed the S3 bucket to become public.*
 
@@ -61,6 +71,11 @@ Guided Questions
 
 ![Figure 9: Name of S3 bucket that was made public](Screenshots/S3_bucket_name.png)
 *Figure 9: Identification of the specific S3 bucket (frothlywebcode) that was exposed to the public internet.*
+
+---
+
+### Stage 3: Impact Assessment & Endpoint Correlation
+Once the breach was identified, the timeline concludes by assessing what the attacker did and where the compromised user was physically located.
 
 ![Figure 10: File uploaded to the S3 bucket](Screenshots/upoaded_file_in_s3_bucket.png)
 *Figure 10: Detection of the specific file uploaded to the compromised bucket during the window of exposure.*
