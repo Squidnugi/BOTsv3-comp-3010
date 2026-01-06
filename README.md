@@ -2,17 +2,16 @@
 Github for Henry McConville comp 3010 assignment on the splunk BOTsv3 database
 
 ## 1. Introduction
-### SOC Context & Objectives
-This report details a forensic investigation into the Frothly food and beverage corporation, utilising the Splunk Boss of the SOC (BOTSv3) dataset. The scope of this analysis focuses on the hybrid infrastructure, bringing cloud assets and on-premises endpoints. The key telemetry sources include:
--	AWS: cloudtrial and S3 access logs track identity management and storage exposures.
--	Windows: WinHostMon logs to analyse physical system configurations and hardware-level persistence.
+This report documents a forensic investigation using the Boss of the SOC (BOTS) v3 dataset within a Splunk environment. The scenario involves a targeted attack against Frothly, a functional brewing company.
 
-The primary objective is to reconstruct the attack lifecycle. Specifically, this investigation aims to:
--	Identify any vulnerabilities.
--	Assess the impact of the damage done.
--	Provide a recovery roadmap to heal and make the environment stronger.
+Objectives:
+-	To identify the scope of the compromise and the tactics, techniques, and procedures (TTPs) used by the adversary.
+-	To demonstrate proficiency in Splunk SPL (Search Processing Language) for incident detection.
 
-This investigation is limited to a small part of the BOTSv3 dataset, mainly activity around and related to the user bstoll. It is assumed that all the logs provided in the Splunk index are authentic and that the timestamps are synchronised across both AWS and Windows environments to allow for accurate chronological correlation. And certain parts of the dataset requires specific add-ons to function.
+Scope & Assumptions:
+-	Scope: Analysis is limited to the BOTSv3 dataset, focusing on network traffic, endpoint logs, and web server telemetry.
+-	Assumptions: It is assumed that the SOC has baseline visibility into the Frothly network. While some data normalisation (Add-ons) was finalised during the investigation, the underlying raw telemetry is assumed to be integral and accurate.
+
 
 ## 2. SOC Roles & Incident Handling Reflection
 
