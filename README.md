@@ -55,7 +55,9 @@ Figure 2 confirms that the Splunk Enterprise service is successfully initialised
 ![Figure 3: BOTSv3 successfully installed](Screenshots/botsv3_installed.png)
 *Figure 3: Data Summary showing the populated botsv3 index.*
 
-Figure 3 confirms the successful ingestion of the BOTSv3 dataset by demonstrating that the botsv3 index is populated and contains the expected volume of events. Validating the presence of this raw telemetry is a critical baseline step in the NCSC 'Logging and Monitoring' lifecycle. While this confirms the data is physically present within the SIEM, it also establishes the necessary environment for Technology Add-ons to begin parsing the raw logs into structured fields. Ensuring the index is fully populated is a prerequisite for the subsequent analytical phase, where these fields will be used to correlate activity across AWS and Windows sources.
+Figure 3 confirms successful ingestion of the BOTSv3 dataset, showing the directory structure containing the raw data files (LICENSE, README.txt, bin, default, lookups, and var). This validation step ensures all dataset components are present before indexing begins. Initial queries confirmed the time range (August 19-20, 2018) and presence of multiple sourcetypes (aws:cloudtrail, WinHostMon, stream:http).
+
+During the investigation, it became necessary to install Splunk Technology Add-ons for AWS and Windows to extract structured fields from raw JSON and event data. These add-ons normalize fields such as userIdentity.userName, eventName, and requestParameters into searchable attributes, transforming unstructured logs into Common Information Model (CIM) compliant data. This iterative approach—where field extraction is refined as investigation needs emerge—reflects standard SOC practice and significantly improved query efficiency for cross-platform correlation.
 
 ## 4. Guided Investigation: Analysis and Timeline of Events
 
@@ -122,7 +124,7 @@ The investigation concluded by assessing the specific unauthorized activity and 
 ![Figure 10: 'OPEN_BUCKET_PLEASE_FIX.txt' file uploaded to the S3 bucket](Screenshots/upoaded_file_in_s3_bucket.png)
 *Figure 10: Detection of 'OPEN_BUCKET_PLEASE_FIX.txt'.*
 
-**Query:** `index=”botsv3” sourcetpye=”aws:s3:accesslogs” | search “frothlywebcode” | search "txt”`
+**Query:** `index=”botsv3” sourcetype=”aws:s3:accesslogs” | search “frothlywebcode” | search "txt”`
 
 Figure 10 reveals a file upload titled OPEN_BUCKET_PLEASE_FIX.txt. This represents an external notification (often referred to as "grey-hat" or "white-hat" reporting) in which a third party discovered the public bucket and notified the administrator. While non-malicious, it confirms that external scanners actively indexed the bucket. 
 
