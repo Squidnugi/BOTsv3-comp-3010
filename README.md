@@ -1,5 +1,10 @@
-# BOTsv3-comp-3010
-Github for Henry McConville comp 3010 assignment on the splunk BOTsv3 database
+# Cyber Incident Investigation: Splunk BOTSv3 (Frothly Breach)
+**Author:** Henry McConville
+
+**Module:** COMP3010 Security Operations & Incident Management
+
+**Dataset:** Splunk Boss of the SOC (BOTSv3)
+
 
 ## 1. Introduction
 This report documents a forensic investigation using the Boss of the SOC (BOTS) v3 dataset within a Splunk environment. The scenario involves a targeted attack against Frothly, a functional brewing company.
