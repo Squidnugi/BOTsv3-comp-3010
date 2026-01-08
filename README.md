@@ -5,6 +5,7 @@
 
 **Dataset:** Splunk Boss of the SOC (BOTSv3)
 
+**Video Presentation:** https://youtu.be/RdVu0Io2J9Y
 
 ## 1. Introduction
 This report documents a forensic investigation using the Boss of the SOC (BOTS) v3 dataset within a Splunk environment. The scenario involves a targeted attack against Frothly, a functional brewing company.
