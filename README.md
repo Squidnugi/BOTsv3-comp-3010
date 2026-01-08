@@ -177,5 +177,3 @@ Building upon the incident’s key findings, the following prioritized strategic
 
 [5] Amazon Web Services, "AWS CloudTrail User Guide," 2024. [Online]. Available: https://docs.aws.amazon.com/cloudtrail/.
 
-[6] NIST, "Computer Security Incident Handling Guide," SP 800-61 Rev. 2, 2012. [Online]. Available: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf.
-
