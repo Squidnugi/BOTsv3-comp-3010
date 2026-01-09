@@ -161,11 +161,12 @@ This incident highlights significant failures in Identity and Access Management 
 -	**The "Least Privilege" Gap:** The user bstoll possessed permissions sufficient to modify global bucket ACLs. This violates the Principle of Least Privilege (PoLP). Strategically, this incident highlights the need for SOC investment in cloud security expertise and Cloud Security Posture Management (CSPM) tooling to complement traditional network-based detection capabilities. Developer accounts should not have the authority to change the visibility of the production environment without a formal change management process or multi-party authorisation.
 
 ### Proposed Improvements for Detection and Response
-Building upon the incident’s key findings, the following prioritized strategic improvements are recommended to strengthen the Recovery phase and increase organisational resilience to similar breaches:
+Building upon the incident's key findings, the following prioritised strategic improvements are recommended to strengthen the Recovery phase and increase organisational resilience to similar breaches:
+-	**Enforce MFA:** Mandate Multi-Factor Authentication for all IAM accounts with resource modification permissions, directly addressing the primary entry vector.
+-	**Implement Least Privilege Controls:** Restrict developer IAM policies from modifying production bucket ACLs; deploy AWS Service Control Policies (SCPs) to prevent public bucket configurations organisation-wide.
 -	**Automated Real-Time Detection:** Configure Splunk correlation searches to alert on PutBucketAcl events with public grantees (AllUsers/AuthenticatedUsers), shifting from reactive discovery to active alerting.
--	**Automated Remediation (SOAR):** Implementing a Security Orchestration, Automation, and Response (SOAR) playbook could automatically revert unauthorised ACL changes the moment they are detected, effectively reducing the window of exposure from minutes to seconds.
--	**Secrets Management:** A strict policy against hardcoding IAM credentials in code repositories must be enforced, supported by automated pre-commit scanning tools (such as GitGuardian or AWS Secrets Manager) to prevent leaks in the first place.
-
+-	**Automated Remediation (SOAR):** Implement Security Orchestration, Automation, and Response playbooks to automatically revert unauthorised ACL changes upon detection, reducing exposure windows from minutes to seconds.
+-	**Secrets Management:** Enforce strict policies against hardcoding IAM credentials in repositories, supported by automated pre-commit scanning tools (GitGuardian or AWS Secrets Manager).
 
 ## 6. References
 [1] NCSC, "10 Steps to Cyber Security," 2023. [Online]. Available: https://www.ncsc.gov.uk/collection/10-steps.
